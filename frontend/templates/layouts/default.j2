@@ -126,14 +126,6 @@
     {% include 'views/partials/footer.j2' %}
     {% endblock %}
 
-    {# Add hint that we might use help to translate untranslated docs #}
-    {% if not '@' in doc.pod_path and not doc.locale == podspec.default_locale and doc.pod_path.startswith('/content/amp-dev/documentation') %}
-    {% do doc.styles.addCssFile('/css/components/organisms/translation-hint.css') %}
-    <aside class="ap-o-translation-hint">
-      <p class="ap-o-translation-hint-wrapper">{{ _('Sadly this page isn\'t translated yet, but we could use some help doing so. See the <a href="/documentation/guides-and-tutorials/contribute/translations\">translation guide</a> on how you can contribute.') }}</p>
-    </aside>
-    {% endif %}
-
     {% block analytics %}
     {% include 'views/partials/analytics.j2' %}
     {% include 'views/partials/consent.j2' %}
